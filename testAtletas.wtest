@@ -1,0 +1,23 @@
+import atletas.*
+import disciplinas.*
+import elementos.*
+
+describe "Test de escenarios propuestos para victoria" {
+  test "El presupuesto propio de victoria al incio es de 40" {
+    assert.equals(40, victoria.presupuestoPropio())
+  }
+  test "Victoria se quiere parecer a Pareto (que mide 150 cms), se hace pequeña, practica judo y por lo tanto necesita un traje de judo. Además, tiene 4 entrenadores. Debe dar 8820"{
+    victoria.altura(150)
+    victoria.cambiarDisciplina(judo)
+    victoria.cambiarElemento(trajeDeJudo)
+    victoria.cambiarCantidadDeEntrenadores(4)
+    assert.equals(40+480+7500, victoria.presupuesto())
+  }
+  test "Victoria ahora se quiere parecer a Delpo y empieza a practicar tenis. Elonga con intensidad hasta llegar a los dos metros diez, necesita una raqueta tiene al inicio 22 años y tiene dos entrenadores. Debe dar 2435" {
+    victoria.altura(210)
+    victoria.cambiarDisciplina(tenis)
+    victoria.cambiarElemento(raqueta)
+    victoria.cambiarCantidadDeEntrenadores(2)
+    assert.equals(20+215+2200, victoria.presupuesto())
+  }
+}
